@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS;..\FWlib\inc;..\USER;..\FWlib\src;..\CMSIS\startup;..\APP\LED;..\USER;..\APP\DELAY</IncludePath>
+              <IncludePath>..\CMSIS;..\FWlib\inc;..\USER;..\FWlib\src;..\CMSIS\startup;..\APP\LED;..\USER;..\APP\DELAY;..\APP\SONAR_TX;..\APP\SONAR_RX;..\APP\USART3</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -432,6 +432,16 @@
               <FileType>1</FileType>
               <FilePath>..\FWlib\src\misc.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FWlib\src\stm32f10x_exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FWlib\src\stm32f10x_usart.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -461,6 +471,21 @@
               <FileName>delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\APP\DELAY\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>sonar_tx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\SONAR_TX\sonar_tx.c</FilePath>
+            </File>
+            <File>
+              <FileName>sonar_rx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\SONAR_RX\sonar_rx.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\USART3\usart3.c</FilePath>
             </File>
           </Files>
         </Group>

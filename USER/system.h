@@ -1,6 +1,7 @@
 #ifndef SYSTEM_H
 #define SYSTEM_H	
 #include "stm32f10x.h"
+#include "config.h"
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
 //ALIENTEK STM32开发板		   
@@ -56,10 +57,5 @@
 
 #define PGout(n)   BIT_ADDR(GPIOG_ODR_Addr,n)  //输出 
 #define PGin(n)    BIT_ADDR(GPIOG_IDR_Addr,n)  //输入
-
-// type define
-typedef unsigned char  u8;
-typedef unsigned short u16;
-typedef unsigned int   u32;
 
 #endif

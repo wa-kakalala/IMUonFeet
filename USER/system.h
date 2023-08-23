@@ -61,4 +61,9 @@
 #define PGout(n)   BIT_ADDR(GPIOG_ODR_Addr,n)  // ‰≥ˆ 
 #define PGin(n)    BIT_ADDR(GPIOG_IDR_Addr,n)  // ‰»Î
 
+// type define
+typedef unsigned char  u8;
+typedef unsigned short u16;
+typedef unsigned int   u32;
+
 #endif

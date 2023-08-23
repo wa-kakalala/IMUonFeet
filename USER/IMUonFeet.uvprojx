@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS;..\FWlib\inc;..\USER;..\FWlib\src;..\CMSIS\startup;..\APP\LED;..\USER</IncludePath>
+              <IncludePath>..\CMSIS;..\FWlib\inc;..\USER;..\FWlib\src;..\CMSIS\startup;..\APP\LED;..\USER;..\APP\DELAY</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -427,6 +427,11 @@
               <FileType>1</FileType>
               <FilePath>..\FWlib\src\stm32f10x_rcc.c</FilePath>
             </File>
+            <File>
+              <FileName>misc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FWlib\src\misc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -451,6 +456,11 @@
               <FileName>led.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\APP\LED\led.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\DELAY\delay.c</FilePath>
             </File>
           </Files>
         </Group>

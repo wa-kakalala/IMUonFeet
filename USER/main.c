@@ -5,10 +5,12 @@
 *********************************************************/	
 
 #include "led.h"
+#include "delay.h"
 
 void SYS_Init(void){
 	SystemInit();	    // config sys clk to 72M 	
 	LED_Init();       // Led Port Init
+	SysTick_Init(72);
 }
 
 
@@ -19,7 +21,10 @@ int main(void)
 	
   while (1)
   {
-		
+		LED_on();
+		delay_ms(1000);
+		LED_off();
+		delay_ms(1000);
   }
 }
 

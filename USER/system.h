@@ -12,11 +12,7 @@
 //Copyright(C) 广州市星翼电子科技有限公司 2009-2019
 //All rights reserved
 ////////////////////////////////////////////////////////////////////////////////// 	 
-
-//0,不支持ucos
-//1,支持ucos
-#define SYSTEM_SUPPORT_OS		0		//定义系统文件夹是否支持UCOS
-																	    
+																    
 //IO口操作宏定义
 #define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
 #define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 

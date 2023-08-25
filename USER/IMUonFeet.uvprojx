@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS;..\FWlib\inc;..\USER;..\FWlib\src;..\CMSIS\startup;..\APP\LED;..\USER;..\APP\DELAY;..\APP\SONAR_TX;..\APP\SONAR_RX;..\APP\USART3</IncludePath>
+              <IncludePath>..\CMSIS;..\FWlib\inc;..\USER;..\FWlib\src;..\CMSIS\startup;..\APP\LED;..\USER;..\APP\DELAY;..\APP\SONAR_TX;..\APP\SONAR_RX;..\APP\USART3;..\APP\SPI2;..\APP\NRF24G</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -442,6 +442,11 @@
               <FileType>1</FileType>
               <FilePath>..\FWlib\src\stm32f10x_usart.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FWlib\src\stm32f10x_spi.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -486,6 +491,16 @@
               <FileName>usart3.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\APP\USART3\usart3.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\SPI2\spi2.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf24g.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\NRF24G\nrf24g.c</FilePath>
             </File>
           </Files>
         </Group>

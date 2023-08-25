@@ -7,6 +7,8 @@
 #include "delay.h"
 #include "sonar_rx.h"
 #include "usart3.h"
+#include "nrf24g.h"
+
 
 void SYS_Init(void){
 	SystemInit();	    // config sys clk to 72M 	
@@ -15,23 +17,43 @@ void SYS_Init(void){
 	LED_Init();       // Led Port Init
 	SONAR_RX_Init();
 	USART3_Init(115200);
+	NRF24G_Init();
 }
 
 
+
+void NRF24G_Init(void);
+u8 NRF24G_Check(void);
 int main(void)
 {
+	#ifdef DEBUG_MODE
+	u32 led_counter = 0;
+	#endif
+	
 	SYS_Init();
-	LED_on();         // can use led to instruct that system is running
-	
-	
+  
+	#ifdef DEBUG_MODE
 	printf("the system is running...\r\n");
+	if( !NRF24G_Check() ){
+		printf("the nrf24g device is ok !\r\n");
+	}else{
+		printf("the nrf24g device is error !!!\r\n");
+	}
+	#endif
   while (1)
   {
-		LED_on();
-		delay_ms(1000);
-		LED_off();
-		delay_ms(1000);
-  }
+		#ifdef DEBUG_MODE
+		// can use led to instruct that system is running
+		if( led_counter == 300000 ) {
+			 LED_on();
+		}else if( led_counter == 600000 ) {
+			 LED_off();
+			 led_counter =0;
+    }else {
+		}
+		led_counter ++;
+		#endif
+	}
 }
 
 

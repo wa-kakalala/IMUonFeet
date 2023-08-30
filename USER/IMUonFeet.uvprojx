@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS;..\FWlib\inc;..\USER;..\FWlib\src;..\CMSIS\startup;..\APP\LED;..\USER;..\APP\DELAY;..\APP\SONAR_TX;..\APP\SONAR_RX;..\APP\USART3;..\APP\SPI2;..\APP\NRF24G</IncludePath>
+              <IncludePath>..\CMSIS;..\FWlib\inc;..\USER;..\FWlib\src;..\CMSIS\startup;..\APP\LED;..\USER;..\APP\DELAY;..\APP\SONAR_TX;..\APP\SONAR_RX;..\APP\USART3;..\APP\SPI2;..\APP\NRF24G;..\APP\IIC;..\APP\OLED</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -501,6 +501,16 @@
               <FileName>nrf24g.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\APP\NRF24G\nrf24g.c</FilePath>
+            </File>
+            <File>
+              <FileName>iic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\IIC\iic.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\OLED\oled.c</FilePath>
             </File>
           </Files>
         </Group>

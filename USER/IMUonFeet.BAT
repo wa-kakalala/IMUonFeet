@@ -21,5 +21,7 @@ SET CPU_CLOCK=0x00B71B00
 "E:\software\keil5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\usart3.__i"
 "E:\software\keil5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\spi2.__i"
 "E:\software\keil5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\nrf24g.__i"
+"E:\software\keil5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\iic.__i"
+"E:\software\keil5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\oled.__i"
 "E:\software\keil5\ARM\ARMCC\Bin\ArmLink" --Via ".\Output\IMUonFeet.lnp"
 "E:\software\keil5\ARM\ARMCC\Bin\fromelf.exe" ".\Output\IMUonFeet.axf" --i32combined --output ".\Output\IMUonFeet.hex"

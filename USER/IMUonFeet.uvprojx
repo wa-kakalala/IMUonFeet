@@ -512,6 +512,11 @@
               <FileType>1</FileType>
               <FilePath>..\APP\OLED\oled.c</FilePath>
             </File>
+            <File>
+              <FileName>font.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\OLED\font.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

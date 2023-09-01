@@ -1,5 +1,4 @@
 #include "oled.h"
-#include "font.h"
 
 //OLED的显存
 //存放格式如下.
@@ -12,15 +11,24 @@
 //[6]0 1 2 3 ... 127	
 //[7]0 1 2 3 ... 127 	
 
+// 图像取模方式：
+// 1. 逆向：低位在前高位在后
+// 2. 列行式
+//    1  9
+//    2  10
+//    3  11
+//    .
+//    8  16
+
 /**********************************************
 * IIC Start
 **********************************************/
 void OLED_IIC_Start(){
 	OLED_SCL = 1;
-  OLED_SDA = 1;
+	OLED_SDA = 1;
 	
+	OLED_SDA = 0;
 	OLED_SCL = 0;
-  OLED_SDA = 0;
 }
 
 /**********************************************
@@ -29,7 +37,7 @@ void OLED_IIC_Start(){
 void OLED_IIC_Stop(){
 	OLED_SCL = 1;
 	OLED_SDA = 0;
-	OLED_SCL = 1;
+	OLED_SDA = 1;
 }
 
 void OLED_IIC_Wait_Ack(){
@@ -46,7 +54,7 @@ void OLED_Write_IIC_Byte(unsigned char data)
 	OLED_SCL = 0;
 	for(i=0;i<8;i++)		
 	{
-		OLED_SDA = data & ( 0x80 >> i );
+		OLED_SDA = (data >> (7-i)) & 0x01;
 		OLED_SCL = 1;
 		OLED_SCL = 0;
 	}
@@ -89,13 +97,18 @@ void Write_IIC_Data(u8 data){
 void OLED_WR_Byte(u8 dat,u8 cmd)
 {
 	if(!cmd){
-   Write_IIC_Data(dat);
+		Write_IIC_Data(dat);
 	}
 	else {
-   Write_IIC_Command(dat);	
+		Write_IIC_Command(dat);	
 	}
 }
 
+
+/***********************
+* SCL: PB8
+* SDA: PB9
+***********************/
 void OLED_Init(void){
 	
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -107,7 +120,7 @@ void OLED_Init(void){
 	
 	OLED_SCL = 1;
 	OLED_SDA = 1;
-	delay_ms(800);
+	//delay_ms(800);
 	
 	OLED_WR_Byte(0xAE,OLED_CMD);//--display off
 	OLED_WR_Byte(0x00,OLED_CMD);//---set low column address
@@ -189,7 +202,8 @@ void OLED_On(void)
 		OLED_WR_Byte (0xb0+i,OLED_CMD);    //设置页地址（0~7）
 		OLED_WR_Byte (0x00,OLED_CMD);      //设置显示位置—列低地址
 		OLED_WR_Byte (0x10,OLED_CMD);      //设置显示位置—列高地址   
-		for(n=0;n<128;n++)OLED_WR_Byte(1,OLED_DATA); 
+		// 设置为0x01是一些条纹线，设置为0xff是全亮 
+		for(n=0;n<128;n++)OLED_WR_Byte(0xff,OLED_DATA); 
 	} //更新显示
 }
 

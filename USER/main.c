@@ -9,7 +9,6 @@
 #include "usart3.h"
 #include "nrf24g.h"
 
-
 void SYS_Init(void){
 	SystemInit();	    // config sys clk to 72M 	
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); 
@@ -20,10 +19,6 @@ void SYS_Init(void){
 	NRF24G_Init();
 }
 
-
-
-void NRF24G_Init(void);
-u8 NRF24G_Check(void);
 int main(void)
 {
 	#ifdef DEBUG_MODE
@@ -31,7 +26,6 @@ int main(void)
 	#endif
 	
 	SYS_Init();
-  
 	#ifdef DEBUG_MODE
 	printf("the system is running...\r\n");
 	if( !NRF24G_Check() ){
@@ -40,8 +34,9 @@ int main(void)
 		printf("the nrf24g device is error !!!\r\n");
 	}
 	#endif
-  while (1)
-  {
+	
+	while (1)
+	{
 		#ifdef DEBUG_MODE
 		// can use led to instruct that system is running
 		if( led_counter == 300000 ) {
@@ -49,7 +44,7 @@ int main(void)
 		}else if( led_counter == 600000 ) {
 			 LED_off();
 			 led_counter =0;
-    }else {
+		}else {
 		}
 		led_counter ++;
 		#endif

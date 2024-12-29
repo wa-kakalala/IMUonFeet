@@ -1,5 +1,6 @@
 #include <Arduino.h>
-#include <WiFi.h>
+#include <ESP8266WiFi.h>
+#include <WiFiUdp.h>
 
 #define AP_SSID "wakaka"
 #define AP_PSK  "swc20001030"
@@ -12,8 +13,6 @@ WiFiUDP udp;
 unsigned int localUdpPort  = 33333;  // 自定义本地监听端口
 unsigned int remoteUdpPort;
 IPAddress remoteUdpIP;
-
-
 
 void handshake(WiFiUDP * udp){
     char incomingPacket[32]; 
@@ -37,9 +36,11 @@ void handshake(WiFiUDP * udp){
             }
         }
     }
+    digitalWrite(4,HIGH);
 }
 
 void setup() {
+    pinMode(4,OUTPUT);
     Serial.begin(115200 * 2);
     Serial.printf("begin to connect to %s...\r\n",ssid);
     WiFi.begin(ssid,password);

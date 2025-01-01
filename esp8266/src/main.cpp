@@ -2,8 +2,8 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-#define AP_SSID "wakaka"
-#define AP_PSK  "swc20001030"
+#define AP_SSID "imutest"
+#define AP_PSK  "imutest123"
 
 const char* ssid     = AP_SSID;
 const char* password = AP_PSK;
@@ -41,7 +41,7 @@ void handshake(WiFiUDP * udp){
 
 void setup() {
     pinMode(4,OUTPUT);
-    Serial.begin(115200 * 2);
+    Serial.begin(115200);
     Serial.printf("begin to connect to %s...\r\n",ssid);
     WiFi.begin(ssid,password);
     
